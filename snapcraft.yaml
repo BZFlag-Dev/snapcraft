@@ -9,7 +9,7 @@ description: |
     and is actively maintained on Windows, Linux, Mac OS X, and other
     platforms.
 
-confinement: devmode
+confinement: strict
 
 parts:
     bzflag:
@@ -31,12 +31,6 @@ parts:
             - libglew-dev
             - make
             - mesa-common-dev
-            - libflac-dev
-            - libsdl-dev
-            - libasound-dev
-            - libasyncns-dev
-            - libcaca-dev
-            - libcurl-dev
         stage-packages:
             - libglu1-mesa
             - libgl1-mesa-dri
