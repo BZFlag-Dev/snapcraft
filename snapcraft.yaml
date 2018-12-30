@@ -1,4 +1,4 @@
-name: bzflag
+name: bzflag-tjhanson
 version: 2.4.18
 summary: Free 3D online multi-player multi-platform tank battle game.
 description: |
@@ -7,8 +7,9 @@ description: |
     tank simulation where opposing teams battle for dominance.  The game
     was originally written for SGI computers running Irix, but now runs
     and is actively maintained on Windows, Linux, Mac OS X, and other
-    platforms.
+    platforms. This is an unofficial snap of the game/server.
 
+architectures: [amd64]
 confinement: strict
 
 parts:
