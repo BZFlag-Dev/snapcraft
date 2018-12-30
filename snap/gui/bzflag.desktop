@@ -1,9 +1,10 @@
+#!/usr/bin/env xdg-open
 [Desktop Entry]
 Name=BZFlag
 X-GNOME-FullName=BZFlag
 Comment=Free 3D online multi-player multi-platform tank battle game.
 Categories=Games;
-Exec=bzflag-thanson.bzflag %U
+Exec=bzflag-thanson.bzflag %u
 Icon=${SNAP}/share/bzflag/bzflag-256x256.png
 Terminal=false
 Type=Application

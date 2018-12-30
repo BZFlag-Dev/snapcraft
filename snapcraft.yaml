@@ -36,8 +36,8 @@ parts:
             - libglu1-mesa
             - libgl1-mesa-dri
             - libgl1-mesa-glx
-        #after:
-        #    - desktop-glib-only
+        after:
+            - desktop-glib-only
         #install: ../../../install-opengl-framework.sh
         
         override-build: |
@@ -45,7 +45,7 @@ parts:
             ../../../install-opengl-framework.sh
 apps:
     bzflag:
-        command: opengl-launch $SNAP/bin/bzflag
+        command: desktop-launch opengl-launch $SNAP/bin/bzflag
         plugs:
             - opengl
             - x11
