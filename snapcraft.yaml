@@ -7,7 +7,8 @@ description: |
     tank simulation where opposing teams battle for dominance.  The game
     was originally written for SGI computers running Irix, but now runs
     and is actively maintained on Windows, Linux, Mac OS X, and other
-    platforms. This is an unofficial snap of the game/server.
+    platforms. This is an unofficial snap of the game/server. If you have
+    snap-specific problems, please contact me and not the project.
 
 architectures: [amd64]
 confinement: strict
@@ -38,14 +39,9 @@ parts:
             - libgl1-mesa-glx
         after:
             - desktop-glib-only
-        #install: ../../../install-opengl-framework.sh
-        
-        override-build: |
-            snapcraftctl build
-            ../../../install-opengl-framework.sh
 apps:
     bzflag:
-        command: desktop-launch opengl-launch $SNAP/bin/bzflag
+        command: desktop-launch $SNAP/bin/bzflag -directory $SNAP/share/bzflag/ -configdir $SNAP_USER_COMMON/.config/
         plugs:
             - opengl
             - x11
