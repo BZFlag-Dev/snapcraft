@@ -13,6 +13,22 @@ description: |
 architectures: [amd64]
 confinement: strict
 
+apps:
+    bzflag:
+        command: desktop-launch $SNAP/bin/bzflag -directory $SNAP/share/bzflag/ -configdir $SNAP_USER_COMMON/.config/
+        plugs:
+            - opengl
+            - x11
+            - network
+            - network-bind
+            - alsa
+            - pulseaudio
+    bzfs:
+    	command: bzfs
+        plugs:
+        	- network
+            - network-bind
+            
 parts:
     bzflag:
         plugin: autotools
@@ -39,13 +55,3 @@ parts:
             - libgl1-mesa-glx
         after:
             - desktop-glib-only
-apps:
-    bzflag:
-        command: desktop-launch $SNAP/bin/bzflag -directory $SNAP/share/bzflag/ -configdir $SNAP_USER_COMMON/.config/
-        plugs:
-            - opengl
-            - x11
-            - network
-            - network-bind
-            - alsa
-            - pulseaudio
