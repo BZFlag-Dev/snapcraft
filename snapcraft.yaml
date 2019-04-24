@@ -1,14 +1,11 @@
-name: bzflag-tjhanson
+name: bzflag
 version: 2.4.18
 summary: Free 3D online multi-player multi-platform tank battle game.
 description: |
-    BZFlag is an Open Source OpenGL multiplayer multiplatform Battle Zone
-    capture the Flag game.  At its heart, the game is a 3D first person
-    tank simulation where opposing teams battle for dominance.  The game
-    was originally written for SGI computers running Irix, but now runs
-    and is actively maintained on Windows, Linux, Mac OS X, and other
-    platforms. This is an unofficial snap of the game/server. If you have
-    snap-specific problems, please contact me and not the project.
+    BZFlag is a 3D networked multi-player multi-platform tank battle
+    game. It runs on Windows, macOS, Linux, BSD, and other platforms. It
+    was one of the most popular games ever on Silicon Graphics machines
+    and continues to be developed and improved to this day.
 
 architectures: [amd64]
 confinement: strict
@@ -24,11 +21,11 @@ apps:
             - alsa
             - pulseaudio
     bzfs:
-    	command: bzfs
+        command: bzfs
         plugs:
             - network
             - network-bind
-            
+
 parts:
     bzflag:
         plugin: autotools
