@@ -38,7 +38,7 @@ parts:
             - autoconf
             - libgl1-mesa-dev
             - libglu1-mesa-dev
-            - libsdl1.2-dev
+            - libsdl2-dev
             - libcurl3-dev
             - libc-ares-dev
             - zlib1g-dev
