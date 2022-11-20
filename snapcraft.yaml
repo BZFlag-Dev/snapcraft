@@ -1,5 +1,5 @@
 name: bzflag
-version: 2.4.22
+version: 2.4.26
 summary: Free 3D online multi-player multi-platform tank battle game.
 description: |
     BZFlag is a 3D networked multi-player multi-platform tank battle
@@ -30,7 +30,8 @@ parts:
     bzflag:
         plugin: autotools
         source-type: tar
-        source: https://github.com/BZFlag-Dev/bzflag/archive/v2.4.22.tar.gz
+        source: https://download.bzflag.org/bzflag/source/2.4.26/bzflag-2.4.26.tar.gz
+        source-checksum: sha256/e82ed881ab37b22763ba666f599b95b3fb2cb30f4aeb9104ac9b56f1671618cb
         build-packages:
             - g++
             - libtool
