@@ -1,30 +1,45 @@
 name: bzflag
-version: 2.4.30
+title: BZFlag
+base: core24
+version: '2.4.30'
 summary: Free 3D online multi-player multi-platform tank battle game.
 description: |
     BZFlag is a 3D networked multi-player multi-platform tank battle
     game. It runs on Windows, macOS, Linux, BSD, and other platforms. It
     was one of the most popular games ever on Silicon Graphics machines
     and continues to be developed and improved to this day.
+license: LGPL-2.1
+website:
+    - https://www.bzflag.org/
+source-code:
+    - https://github.com/BZFlag-Dev/bzflag
+issues:
+    - https://github.com/BZFlag-Dev/bzflag/issues
 
-architectures: [amd64]
+grade: stable
 confinement: strict
+
+platforms:
+    amd64:
 
 apps:
     bzflag:
-        command: desktop-launch $SNAP/bin/bzflag -directory $SNAP/share/bzflag/ -configdir $SNAP_USER_COMMON/.config/
+        command: usr/games/bzflag -directory $SNAP/usr/share/games/bzflag/ -configdir $SNAP_USER_COMMON/.config/
+        extensions: [gnome]
         plugs:
             - opengl
+            - wayland
             - x11
             - network
             - network-bind
-            - alsa
             - pulseaudio
-    bzfs:
-        command: bzfs
-        plugs:
-            - network
-            - network-bind
+            - audio-playback
+            - desktop
+            - desktop-legacy
+            - joystick
+        environment:
+            # Needed to make an error about libpxbackend-1.0.so go away
+            LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/libproxy
 
 parts:
     bzflag:
@@ -32,24 +47,23 @@ parts:
         source-type: tar
         source: https://download.bzflag.org/bzflag/source/2.4.30/bzflag-2.4.30.tar.gz
         source-checksum: sha256/30bf76e8c154beac82582ed4ce29ce14dc951231c69dab297c6677add8f7ed09
+        autotools-configure-parameters:
+            - --datarootdir=/usr/share/games
+            - --bindir=/usr/games
+            - --libdir=/usr/lib/bzflag-server
         build-packages:
-            - g++
-            - libtool
-            - automake
-            - autoconf
-            - libgl1-mesa-dev
-            - libglu1-mesa-dev
             - libsdl2-dev
-            - libcurl3-dev
+            - libcurl4-openssl-dev
             - libc-ares-dev
             - zlib1g-dev
             - libncurses-dev
             - libglew-dev
-            - make
-            - mesa-common-dev
         stage-packages:
+            - libsdl2-2.0-0
+            - libcurl4t64
+            - libcares2
+            - libncurses6
+            - libglew2.2
             - libglu1-mesa
-            - libgl1-mesa-dri
-            - libgl1-mesa-glx
-        after:
-            - desktop-glib-only
+            - libproxy1v5 # Needed to quell an error about libpxbackend-1.0.so
+
