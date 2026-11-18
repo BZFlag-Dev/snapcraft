@@ -9,6 +9,7 @@ description: |
     was one of the most popular games ever on Silicon Graphics machines
     and continues to be developed and improved to this day.
 license: LGPL-2.1
+contact: https://www.bzflag.org/
 website:
     - https://www.bzflag.org/
 source-code:
@@ -50,19 +51,18 @@ parts:
         autotools-configure-parameters:
             - --datarootdir=/usr/share/games
             - --bindir=/usr/games
-            - --libdir=/usr/lib/bzflag-server
+            - --disable-server
+            - --disable-bzadmin
         build-packages:
             - libsdl2-dev
             - libcurl4-openssl-dev
             - libc-ares-dev
             - zlib1g-dev
-            - libncurses-dev
             - libglew-dev
         stage-packages:
             - libsdl2-2.0-0
             - libcurl4t64
             - libcares2
-            - libncurses6
             - libglew2.2
             - libglu1-mesa
             - libproxy1v5 # Needed to quell an error about libpxbackend-1.0.so
