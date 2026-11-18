@@ -1,7 +1,7 @@
 name: bzflag
 title: BZFlag
 base: core24
-version: '2.4.30'
+version: '2.4.32'
 summary: Free 3D online multi-player multi-platform tank battle game.
 description: |
     BZFlag is a 3D networked multi-player multi-platform tank battle
@@ -45,8 +45,8 @@ parts:
     bzflag:
         plugin: autotools
         source-type: tar
-        source: https://download.bzflag.org/bzflag/source/2.4.30/bzflag-2.4.30.tar.gz
-        source-checksum: sha256/30bf76e8c154beac82582ed4ce29ce14dc951231c69dab297c6677add8f7ed09
+        source: https://download.bzflag.org/bzflag/source/2.4.32/bzflag-2.4.32.tar.gz
+        source-checksum: sha256/114b2f474997c88c9e69802ad20999a51b6e4b97a3b336931fc1efa968bea852
         autotools-configure-parameters:
             - --datarootdir=/usr/share/games
             - --bindir=/usr/games
@@ -66,4 +66,3 @@ parts:
             - libglew2.2
             - libglu1-mesa
             - libproxy1v5 # Needed to quell an error about libpxbackend-1.0.so
-
